@@ -7,6 +7,9 @@
     "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "12.6.0"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -14,8 +17,6 @@
   },
   "dependencies": {
     "express": "^4.17.1"
-  },
-  "engines": {
-    "node": "12.6.0"
   }
+
 }
