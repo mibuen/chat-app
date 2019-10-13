@@ -16,9 +16,29 @@ const io = socketIO(server);
 app.use(express.static(publicPath));
 
 io.on('connection',(socket)=>{
-  console.log('New User Connected');
+  console.log('New USER SUPER_KonecTed al Servidor');
+  socket.emit('newMessage', {
+    from: 'chiquitoKBrown',
+    text: 'This is Good',
+    createdAt: 123233
+  });
+
   socket.on('disconnect',()=>{
     console.log('CLIENTE DESCONECTADO');
+  });
+
+  socket.emit('newEmail',{
+    from: 'chico@kbrow.com',
+    text: 'tomando Flat White',
+    createdAt: 12345
+  });
+  socket.on('createEmail',(newEmail)=>{
+    console.log('createEmail');
+    console.log(newEmail);
+  });
+
+  socket.on('createMessage',(message)=>{
+    console.log('Create Message', message);
   });
 });
 
