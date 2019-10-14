@@ -18,28 +18,37 @@ app.use(express.static(publicPath));
 io.on('connection',(socket)=>{
   console.log('New USER SUPER_KonecTed al Servidor');
   socket.emit('newMessage', {
-    from: 'chiquitoKBrown',
-    text: 'This is Good',
-    createdAt: 123233
+    from: 'user@kbrown.com',
+    text: 'This is el Chiquito57',
+    createdAt: new Date().getTime()
   });
 
   socket.on('disconnect',()=>{
     console.log('CLIENTE DESCONECTADO');
   });
 
+  socket.on('createMessage',(message)=>{
+    console.log('Create Message', message);
+    io.emit('newMessage',{
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    });
+  });
+/*
   socket.emit('newEmail',{
     from: 'chico@kbrow.com',
     text: 'tomando Flat White',
     createdAt: 12345
   });
+*/  
+  /*
   socket.on('createEmail',(newEmail)=>{
     console.log('createEmail');
     console.log(newEmail);
   });
+*/
 
-  socket.on('createMessage',(message)=>{
-    console.log('Create Message', message);
-  });
 });
 
 
