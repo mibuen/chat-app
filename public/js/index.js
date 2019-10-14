@@ -12,9 +12,9 @@
     socket.on('disconnect',()=>{
       console.log('DESCONECTADO');
     });
-//    socket.on('newMessage',(message)=>{
-  //    console.log('newMessage',message);
- //   });
+  socket.on('newMessage',(message)=>{
+   console.log('newMessage',message);
+  });
 
 
 
