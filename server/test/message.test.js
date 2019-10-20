@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
 // test for message
+
 const expect = require('expect');
 const { generateMessage } = require('../utils/message');
 
