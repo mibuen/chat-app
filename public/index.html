@@ -15,6 +15,30 @@
     <div class="chat__main">
       <ol class="chat__messages" id="messages"></ol>
       <div class="chat__footer">
+        <script id="message-template" type="text/template">
+          <li class="message">
+            <div class="message__title">
+              <h4>{{from}}</h4>
+              <span>{{createdAt}}</span>
+            </div>
+              <div class="message__body">
+                <p>{{text}}</p>
+            </div>
+          </li>
+        </script>
+        <script id="location-message-template" type="text/template">
+          <li class="message">
+            <div class="message__title">
+              <h4>{{from}}</h4>
+              <span>{{createdAt}}</span>
+            </div>
+              <div class="message__body">
+                <p>
+                  <a href="{{url}}" target="_blank">My Current location</a>
+                </p>
+            </div>
+          </li>
+        </script>
         <form id="message-form">
           <input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
           <button>Send</button>
@@ -24,12 +48,17 @@
     </div>
 
     <script src="./socket.io/socket.io.js"></script>
-    <script src="./js/libs/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"
       integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs="
       crossorigin="anonymous"
     ></script>
+    <script src="./js/libs/mustache.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
