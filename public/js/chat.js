@@ -19,7 +19,16 @@ const scrollToBottom = () => {
 const locationButton = jQuery('#send-location');
 
 socket.on('connect', () => {
-  console.log('CONNECTED TO SERVER');
+  const params = jQuery.deparam(window.location.search);
+  console.log('CONNECTED TO SERVER', params);
+  socket.emit('join', params, err => {
+    if (err) {
+      alert(err);
+      window.location.href = '/';
+    } else {
+      console.log('todo bien');
+    }
+  });
 });
 
 socket.on('newMessage', message => {
