@@ -18,6 +18,7 @@ class Users {
     if (user) {
       this.users = this.users.filter(user => user.id !== id);
     }
+    return user;
   }
 
   getUserList(room) {
@@ -28,20 +29,3 @@ class Users {
 }
 
 module.exports = { Users };
-
-/*
-class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  getUserDescription() {
-    return `${this.name} is ${this.age} year(s) old`;
-  }
-}
-
-const me = new Person('Manuel', 62);
-const description = me.getUserDescription();
-console.log(description);
-*/

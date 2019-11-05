@@ -20,7 +20,7 @@ const locationButton = jQuery('#send-location');
 
 socket.on('connect', () => {
   const params = jQuery.deparam(window.location.search);
-  console.log('CONNECTED TO SERVER', params);
+  // console.log('CONNECTED TO SERVER', params);
   socket.emit('join', params, err => {
     if (err) {
       alert(err);
@@ -57,7 +57,16 @@ socket.on('newLocationMessage', message => {
 });
 
 socket.on('disconnect', () => {
-  console.log('DESCONECTADO');
+  console.log('Disconected from Server');
+});
+
+socket.on('updateUserList', users => {
+  const ol = jQuery('<ol></ol>');
+  users.forEach(user => {
+    ol.append(jQuery('<li></li>').text(user));
+  });
+  jQuery('#users').html(ol);
+  console.log('Users List', users);
 });
 
 jQuery('#message-form').on('submit', e => {
