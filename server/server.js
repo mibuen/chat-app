@@ -43,9 +43,9 @@ io.on('connection', socket => {
     callback();
   });
   socket.on('createLocationMessage', coords => {
-    io.emit(
+    io.to(user.room).emit(
       'newLocationMessage',
-      generateLocationMessage('Admin', coords.latitude, coords.longitude)
+      generateLocationMessage(user.name, coords.latitude, coords.longitude)
     );
   });
 
